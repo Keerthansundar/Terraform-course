@@ -20,3 +20,30 @@ variable "instance_type" {
     error_message = "Instance type must be one of: t2.micro, t2.small, t2.medium, t3.micro, t3.small, t3.medium."
   }
 }
+
+
+
+variable "instances" {
+  default = {
+    web = {
+      ami           = "ami-0c55b159cbfafe1f0"
+      instance_type = "t2.micro"
+    }
+    db = {
+      ami           = "ami-0c55b159cbfafe1f0"
+      instance_type = "t2.medium"
+    }
+    cache = {
+      ami           = "ami-0c55b159cbfafe1f0"
+      instance_type = "t2.small"
+    }
+    app = {
+      ami           = "ami-0c55b159cbfafe1f0"
+      instance_type = "t2.large"
+    }
+    monitor = {
+      ami           = "ami-0c55b159cbfafe1f0"
+      instance_type = "t2.micro"
+    }
+  }
+}

@@ -58,10 +58,13 @@ resource "aws_security_group" "my_security_group" {
 # ec2 instance
 
 resource "aws_instance" "my_instance" {
+
+  for_each = var.instances
+
   key_name = aws_key_pair.my_key.key_name
   security_groups = [ aws_security_group.my_security_group.name ]
-  instance_type = var.instance_type
-  ami = var.ami_id
+  instance_type = each.value.instance_type
+  ami = each.value.ami
 
   root_block_device {
     volume_size = 15
@@ -71,6 +74,6 @@ resource "aws_instance" "my_instance" {
   user_data = file("install_nginx.sh")
   
   tags = {
-    Name = "Keerthan-instance"
+    Name = each.key
   }
 }
