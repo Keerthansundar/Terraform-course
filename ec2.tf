@@ -20,7 +20,7 @@ resource "aws_security_group" "my_security_group" {
     from_port = 22
     to_port = 22
     protocol = "tcp"
-    cidr_blocks = ["0.0.0.0/16"]
+    cidr_blocks = ["0.0.0.0/0"]
     description = "SSH open"
   }
 
@@ -28,7 +28,7 @@ resource "aws_security_group" "my_security_group" {
     from_port = 80
     to_port = 80
     protocol = "tcp"
-    cidr_blocks = ["0.0.0.0/16"]
+    cidr_blocks = ["0.0.0.0/0"]
     description = "HTTP open"
   }
 
@@ -36,7 +36,7 @@ resource "aws_security_group" "my_security_group" {
     from_port = 8000
     to_port = 8000
     protocol = "tcp"
-    cidr_blocks = ["0.0.0.0/16"]
+    cidr_blocks = ["0.0.0.0/0"]
     description = "Flask app"
   }
 
@@ -44,7 +44,7 @@ resource "aws_security_group" "my_security_group" {
     from_port = 0
     to_port = 0
     protocol = "-1"
-    cidr_blocks = [ "0.0.0.0/16" ]
+    cidr_blocks = [ "0.0.0.0/0" ]
     description = "all access open"
   }
 
