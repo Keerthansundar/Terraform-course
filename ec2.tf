@@ -61,6 +61,8 @@ resource "aws_instance" "my_instance" {
 
   for_each = var.instances
 
+  depends_on = [ aws_security_group.my_security_group, aws_key_pair.my_key ]
+
   key_name = aws_key_pair.my_key.key_name
   security_groups = [ aws_security_group.my_security_group.name ]
   instance_type = each.value.instance_type
