@@ -16,3 +16,14 @@ output "ec2_private_ip" {
   ]
 }
 
+variable "my_environment" {
+  description = "Deployment environment (dev, staging, prd)"
+  type        = string
+  default     = "dev"
+
+  # validation {
+  #   condition     = contains(["dev", "staging", "prd"], var.my_environment)
+  #   error_message = "Environment must be one of: dev, staging, prd."
+  # }
+}
+
